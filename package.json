@@ -1,0 +1,25 @@
+{
+  "name": "rag-cli-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.8+sha256.691fe176eea9a8a80df20e4976f3dfb44a04841ceb885638fe2a26174f81e65e",
+  "dependencies": {
+    "@chroma-core/default-embed": "^0.1.8",
+    "@langchain/community": "^0.3.45",
+    "@langchain/core": "^0.3.57",
+    "@langchain/ollama": "^0.2.1",
+    "@langchain/qdrant": "^0.1.2",
+    "@qdrant/js-client-rest": "^1.14.1",
+    "chromadb": "^3.0.3",
+    "commander": "^14.0.0",
+    "langchain": "^0.3.27",
+    "pdf-parse": "^1.1.1"
+  }
+}
