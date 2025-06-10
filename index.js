@@ -291,13 +291,14 @@ program
 1. Install and start Ollama:
    - Download from: https://ollama.ai
    - Pull required models:
-     ollama pull llama2
+     ollama pull llama3.1
      ollama pull nomic-embed-text
 
 2. Install and start Qdrant:
    
    Option A - Using Docker (Recommended):
-   docker run -p 6333:6333 qdrant/qdrant
+   docker run -p 6333:6333 -p 6334:6334 -v "$(pwd)/qdrant_storage:/qdrant/storage:z" qdrant/qdrant
+
    
    Option B - Using Binary:
    - Download from: https://github.com/qdrant/qdrant/releases
@@ -308,30 +309,30 @@ program
    qdrant
 
 3. Install Node.js dependencies:
-   npm install commander langchain @qdrant/js-client-rest
+   pnpm install
 
 4. Usage Examples:
    # Ingest a PDF
-   node rag-cli.js ingest ./document.pdf
+   node index.js ingest ./document.pdf
    
    # Query the system
-   node rag-cli.js query "What is the main topic of the document?"
+   node index.js query "What is the main topic of the document?"
    
    # List ingested documents
-   node rag-cli.js list
+   node index.js list
    
    # Clear database
-   node rag-cli.js clear
+   node index.js clear
 
 📝 Prerequisites:
-- Node.js (v16+)
+- Node.js (v18+)
 - Ollama running on localhost:11434
 - Qdrant running on localhost:6333
 - PDF files for ingestion
 
 🔧 Configuration:
 - Default embedding model: nomic-embed-text
-- Default LLM model: llama2
+- Default LLM model: llama3.1
 - Default chunk size: 1000 characters
 - Default chunk overlap: 200 characters
 - Qdrant collection: rag-documents
